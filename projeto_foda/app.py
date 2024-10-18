@@ -7,5 +7,9 @@ app.secret_key = 'chave_screta'
 app.register_blueprint(sol_controller)
 app.register_blueprint(login_control)
 
+@app.errorhandler(404)
+def paginaNaoEncontrada(e):
+    return render_template('404.html'), 404
+
 if __name__ == "__main__":
     app.run()
