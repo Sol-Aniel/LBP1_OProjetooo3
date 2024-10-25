@@ -3,6 +3,6 @@ from models.model import Estrela, estrelas
 
 sol_controller = Blueprint('sol',__name__)
 
-@sol_controller.route('/')
+@sol_controller.route('/estrelas')
 def index():
     return render_template("hestia.html", estrelas=estrelas)
