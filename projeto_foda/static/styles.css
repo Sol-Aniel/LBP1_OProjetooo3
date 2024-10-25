@@ -5,7 +5,17 @@ body {
   padding: 0;
 }
 
-.container {
+h1 {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+  text-align: center;
+}
+
+.bt-container { 
+  text-align: center 
+}
+
+.containe {
   max-width: 500px;
   margin: 30px auto;
   max-height: 800px;
@@ -21,11 +31,25 @@ body {
   text-align: center;
 }
 
-.alert {
-  padding: 20px;
+#formCarrinho {
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+#frutas {
+  width: 100%;
+  padding: 8px;
+  display: block;
+  border: 3px solid #f38508;
+  border-radius: 10px;
+}
+
+.sair {
+  padding: 10px;
   background-color: #f44336; 
   color: white;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
   
 .closebtn {
@@ -41,4 +65,27 @@ body {
   
 .closebtn:hover {
   color: black;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 3px solid #7f5ad4;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+button {
+  width: 35%;
+  padding: 10px;
+  background-color: #26b82b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #45a068;
 }
