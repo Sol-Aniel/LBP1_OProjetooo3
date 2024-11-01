@@ -5,7 +5,7 @@ Passo-a-passo:
  - Criar a Pasta Mãe
  - Abrir o Terminal
  - cd *nome_da_pasta*
- - Lista de comando:  - python 3 -m venv *nome_do_venv*-venv (criar ambiente virtual)
+ - Lista de comando:  - python3 -m venv *nome_do_venv*-venv (criar ambiente virtual)
                       - source *nome_do_venv*-venv/bin/activate (ativar ambiente virtual)
                       - pip install flask (instalar flask)
                       - flask --version (verificar se funcionou)
