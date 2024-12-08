@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLibrary - Lista</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        SOLibrary - Seções de Livros, Autores e Categorias
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <div class="container">
+        <!-- Seção Livros -->
+        <div class="section">
+            <h2>Livros</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Autor</th>
+                        <th>ISBN</th>
+                        <th>Número de Páginas</th>
+                        <th>Data de Publicação</th>
+                        <th>Categoria</th>
+                        <th>Editar</th>
+                        <th>Deletar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for livro in livros %}
+                        <tr>
+                            <td>{{ livro.title }}</td>
+                            <td>{{ livro.author }}</td>
+                            <td>{{ livro.ISBN }}</td>
+                            <td>{{ livro.number_pages }}</td>
+                            <td>{{ livro.pub_date }}</td>
+                            <td>{{ livro.category }}</td>
+                            <td>
+                                <form action="{{ url_for('sol.edit', id=livro.id, tipo='livro') }}">
+                                    <input type="hidden" name="form_type" value="livro">
+                                    <button type="submit">Editar</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="{{ url_for('sol.delete', id=livro.id, tipo='livro') }}", method="POST">
+                                    <input type="hidden" name="form_type" value="livro">
+                                    <button type="submit">Deletar<button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Seção Autores -->
+        <div class="section">
+            <h2>Autores</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Nacionalidade</th>
+                        <th>Data de Nascimento</th>
+                        <th>Editar</th>
+                        <th>Deletar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for autor in autores %}
+                        <tr>
+                            <td>{{ autor.name }}</td>
+                            <td>{{ autor.nacionality }}</td>
+                            <td>{{ autor.birth_date }}</td>
+                            <td>
+                                <form action="{{ url_for('sol.edit', id=autor.id, tipo='autor') }}">
+                                    <input type="hidden" name="form_type" value="autor">
+                                    <button type="submit">Editar</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="{{ url_for('sol.delete', id=autor.id, tipo='autor') }}", method="POST">
+                                    <input type="hidden" name="form_type" value="autor">
+                                    <button type="submit">Deletar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Seção Categorias -->
+        <div class="section">
+            <h2>Categorias</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Editar</th>
+                        <th>Deletar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for categoria in categorias %}
+                        <tr>
+                            <td>{{ categoria.name }}</td>
+                            <td>
+                                <form action="{{ url_for('sol.edit', id=categoria.id, tipo='categoria') }}">
+                                    <input type="hidden" name="form_type" value="categoria">
+                                    <button type="submit">Editar</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="{{ url_for('sol.delete', id=categoria.id, tipo='categoria') }}", method="POST">
+                                    <input type="hidden" name="form_type" value="categoria">
+                                    <button type="submit">Deletar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

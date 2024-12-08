@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLibrary - Lista</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        SOLibrary - Seções de Livros, Autores e Categorias
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <div class="container">
+        <!-- Seção Livros -->
+        <div class="section">
+            <h2>Livros</h2>
+            </select>
+            <input type="text" placeholder="Buscar por título ou autor..." class="search-bar">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Autor</th>
+                        <th>ISBN</th>
+                        <th>Número de Páginas</th>
+                        <th>Data de Publicação</th>
+                        <th>Categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for livro in livros %}
+                        <tr>
+                            <td>{{ livro.title }}</td>
+                            <td>{{ livro.author }}</td>
+                            <td>{{ livro.ISBN }}</td>
+                            <td>{{ livro.number_pages }}</td>
+                            <td>{{ livro.pub_date }}</td>
+                            <td>{{ livro.category }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Seção Autores -->
+        <div class="section">
+            <h2>Autores</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Nacionalidade</th>
+                        <th>Data de Nascimento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for autor in autores %}
+                        <tr>
+                            <td>{{ autor.name }}</td>
+                            <td>{{ autor.nacionality }}</td>
+                            <td>{{ autor.birth_date }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Seção Categorias -->
+        <div class="section">
+            <h2>Categorias</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for categoria in categorias %}
+                        <tr>
+                            <td>{{ categoria.name }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
